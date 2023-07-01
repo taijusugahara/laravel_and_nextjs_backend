@@ -19,3 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+//適当にapiのresが返ってくるかテスト
+Route::get('/', function (Request $request) {
+    $res = [
+        "message" => "apiアクセスに成功しました。",
+    ];
+    return $res;
+});
