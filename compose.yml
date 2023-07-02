@@ -72,6 +72,17 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
 
+  phpmyadmin:
+    container_name: phpmyadmin_container
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=db
+    ports:
+      - 1000:80
+    volumes:
+      - ./phpadmin/sessions:/sessions
+
   mailpit:
     image: axllent/mailpit
     ports:
